@@ -3,6 +3,7 @@ package com.magazi.backend.controller;
 import com.magazi.backend.requestEntity.QuoteRequest;
 import com.magazi.backend.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ public class MagaziController {
     @Autowired
     public EmailService emailService;
 
+    @CrossOrigin
     @PostMapping("/requestQuote")
     public void requestQuote(@RequestBody QuoteRequest request) throws UnsupportedEncodingException {
         emailService.sendEmail(request);
